@@ -3,7 +3,7 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View, Button} from 'react
 import {Provider} from 'react-redux';
 import store from './store';
 import {useSelector, useDispatch} from 'react-redux';
-import {increment, decrement, reset} from './counterSlice';
+import {increment, decrement} from './counterSlice';
 import * as SplashScreen from "expo-splash-screen/build/index";
 import {useEffect} from "react";
 
