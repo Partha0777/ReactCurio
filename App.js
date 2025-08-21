@@ -4,11 +4,25 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement, reset } from './counterSlice';
+import * as SplashScreen from "expo-splash-screen/build/index";
+import {useEffect} from "react";
+import {delay} from "@reduxjs/toolkit/src/utils";
 
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+    useEffect(() => {
+        async function prepare(){
+            try {
+                await new Promise(resolve => setTimeout(resolve, 2000));
+            }finally {
+                await SplashScreen.hideAsync();
+            }
+        }
+        prepare();
+    })
   return (
-    <Provider store={store}>  
+    <Provider store={store}>
     <View style={styles.container}>
       <Text>Kan</Text>
       <View style={styles.inputContainer}>
