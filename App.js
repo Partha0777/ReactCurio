@@ -6,7 +6,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {increment, decrement, reset} from './counterSlice';
 import * as SplashScreen from "expo-splash-screen/build/index";
 import {useEffect} from "react";
-import {delay} from "@reduxjs/toolkit/src/utils";
 
 SplashScreen.preventAutoHideAsync();
 
