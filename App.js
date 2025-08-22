@@ -66,7 +66,6 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            {/* Single native root view */}
             <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
                 <View style={styles.container}>
                     <Text style={styles.title}>Kan</Text>
