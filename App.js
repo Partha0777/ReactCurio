@@ -1,128 +1,152 @@
-import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, TextInput, TouchableOpacity, View, Button} from 'react-native';
-import {Provider} from 'react-redux';
-import store from './store';
-import {useSelector, useDispatch} from 'react-redux';
-import {increment, decrement} from './counterSlice';
-import * as SplashScreen from "expo-splash-screen/build/index";
-import {useEffect} from "react";
+// App.js
+import React, { useCallback, useEffect, useState } from 'react';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
-SplashScreen.preventAutoHideAsync();
+// ---------- Minimal Redux (JS) ----------
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: { value: 0 },
+    reducers: {
+        increment: (state) => { state.value += 1; },
+        decrement: (state) => { state.value -= 1; },
+    },
+});
+const { increment, decrement } = counterSlice.actions;
 
+const store = configureStore({
+    reducer: { counter: counterSlice.reducer },
+});
+
+// ---------- Counter Screen (JS) ----------
+function CounterScreen() {
+    const count = useSelector((state) => state.counter.value);
+    const dispatch = useDispatch();
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.text}>Count: {count}</Text>
+            <TouchableOpacity style={styles.buttonPrimary} onPress={() => dispatch(increment())}>
+                <Text style={styles.buttonText}>{count > 0 ? 'Increase' : 'Increase Pro'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonSecondary} onPress={() => dispatch(decrement())}>
+                <Text style={styles.buttonText}>{count > 0 ? 'Decrease' : 'Decrease Pro'}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+// ---------- App Root (JS) ----------
 export default function App() {
-    useEffect(() => {
-        async function prepare() {
-            try {
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            } finally {
-                await SplashScreen.hideAsync();
-            }
-        }
+    const [appIsReady, setAppIsReady] = useState(false);
 
-        prepare();
-    })
+    useEffect(() => {
+        let mounted = true;
+        (async () => {
+            try {
+                // simulate startup work (API, fonts, storage, etc.)
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+            } finally {
+                if (mounted) setAppIsReady(true);
+            }
+        })();
+        return () => { mounted = false; };
+    }, []);
+
+    const onLayoutRootView = useCallback(async () => {
+        if (appIsReady) {
+            await SplashScreen.hideAsync();
+        }
+    }, [appIsReady]);
+
+    if (!appIsReady) return null; // keep native splash visible
+
     return (
         <Provider store={store}>
-            <View style={styles.container}>
-                <Text>Kan</Text>
-                <View style={styles.inputContainer}>
-                    <TextInput placeholder="Enter your task" style={styles.input}/>
-                    <TouchableOpacity style={styles.button} onPress={() => {
-                    }}>
-                        <Text style={styles.buttonText}>Add</Text>
-                    </TouchableOpacity>
+            {/* Single native root view */}
+            <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+                <View style={styles.container}>
+                    <Text style={styles.title}>Kan</Text>
+                    <View style={styles.inputRow}>
+                        <TextInput placeholder="Enter your task" style={styles.input} />
+                        <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+                            <Text style={styles.addButtonText}>Add</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <StatusBar style="auto" />
                 </View>
-                <StatusBar style="auto"/>
+
+                <CounterScreen />
             </View>
-            <CounterScreen/>
         </Provider>
     );
 }
 
-export function CounterScreen() {
-    const count = useSelector((state) => state.counter.value);
-    const dispatch = useDispatch();
-
-    if (count > 0) {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Count: {count}</Text>
-                <TouchableOpacity style={styles.button1} onPress={() => dispatch(increment())}>
-                    <Text style={styles.buttonText}>Increase</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button1} onPress={() => dispatch(decrement())}>
-                    <Text style={styles.buttonText}>Decrease</Text>
-                </TouchableOpacity>
-            </View>
-        );
-    } else {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.text}>Count: {count}</Text>
-                <TouchableOpacity style={styles.button1} onPress={() => dispatch(increment())}>
-                    <Text style={styles.buttonText}>Increase Pro</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button1} onPress={() => dispatch(decrement())}>
-                    <Text style={styles.buttonText}>Decrease Pro</Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-    ;
-}
-
-
+// ---------- Styles (JS) ----------
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
+        flex: 1, // important
         justifyContent: 'center',
-    },
-    inputContainer: {
-        paddingHorizontal: 20,
-        width: '100%',
-        flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        backgroundColor: '#FFFFFF',
+        paddingHorizontal: 16,
+    },
+    title: {
+        fontSize: 22,
+        fontWeight: '700',
+    },
+    inputRow: {
+        flexDirection: 'row',
+        marginTop: 20,
+        width: '100%',
     },
     input: {
-        width: '80%',
-        marginTop: 10,
-        padding: 10,
+        flex: 1,
         borderWidth: 1,
-        borderColor: '#000',
-        borderRadius: 12,
+        borderColor: '#D1D5DB',
+        backgroundColor: '#F9FAFB',
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        paddingVertical: 10,
+    },
+    addButton: {
+        marginLeft: 10,
+        backgroundColor: '#007AFF',
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+        borderRadius: 8,
+        justifyContent: 'center',
+    },
+    addButtonText: {
+        color: '#FFFFFF',
+        fontWeight: '700',
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: '600',
         marginBottom: 10,
     },
-    button: {
-        marginVertical: 12,
-        marginHorizontal: 10,
-        width: '20%',
-        paddingHorizontal: 5,
+    buttonPrimary: {
+        marginTop: 10,
+        backgroundColor: '#10B981',
         paddingVertical: 10,
-        borderRadius: 20,
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
+        paddingHorizontal: 20,
+        borderRadius: 8,
     },
-    button1: {
-        marginVertical: 12,
-        marginHorizontal: 10,
-        width: '50%',
-        paddingHorizontal: 5,
+    buttonSecondary: {
+        marginTop: 10,
+        backgroundColor: '#EF4444',
         paddingVertical: 10,
-        borderRadius: 20,
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
+        paddingHorizontal: 20,
+        borderRadius: 8,
     },
     buttonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
+        color: '#FFFFFF',
+        fontWeight: '700',
     },
-    text: {fontSize: 30, marginBottom: 20}
-
 });
