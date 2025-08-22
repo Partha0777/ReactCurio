@@ -46,7 +46,6 @@ export default function App() {
         let mounted = true;
         (async () => {
             try {
-                // simulate startup work (API, fonts, storage, etc.)
                 await new Promise((resolve) => setTimeout(resolve, 2000));
             } finally {
                 if (mounted) setAppIsReady(true);
