@@ -62,7 +62,7 @@ export default function App() {
         }
     }, [appIsReady]);
 
-    if (!appIsReady) return null; // keep native splash visible
+    if (!appIsReady) return null;
 
     return (
         <Provider store={store}>
