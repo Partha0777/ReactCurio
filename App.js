@@ -40,7 +40,6 @@ function CounterScreen() {
     );
 }
 
-// ---------- App Root (JS) ----------
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
 
