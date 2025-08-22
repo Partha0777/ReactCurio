@@ -23,7 +23,6 @@ const store = configureStore({
     reducer: { counter: counterSlice.reducer },
 });
 
-// ---------- Counter Screen (JS) ----------
 function CounterScreen() {
     const count = useSelector((state) => state.counter.value);
     const dispatch = useDispatch();
