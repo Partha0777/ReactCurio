@@ -42,7 +42,6 @@ function CounterScreen() {
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
-
     useEffect(() => {
         let mounted = true;
         (async () => {
