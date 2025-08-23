@@ -83,7 +83,6 @@ export default function App() {
     );
 }
 
-// ---------- Styles (JS) ----------
 const styles = StyleSheet.create({
     container: {
         flex: 1, // important
