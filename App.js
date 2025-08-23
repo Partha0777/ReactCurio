@@ -1,4 +1,3 @@
-// App.js
 import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
