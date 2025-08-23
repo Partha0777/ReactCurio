@@ -8,7 +8,6 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
-// ---------- Minimal Redux (JS) ----------
 const counterSlice = createSlice({
     name: 'counter',
     initialState: { value: 0 },
