@@ -6,24 +6,20 @@ import {SafeAreaView, View, Text, Button, StyleSheet} from 'react-native';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-    return (
-        <NavigationContainer>
+    return (<NavigationContainer>
             <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
                 <Stack.Screen name="Home" component={HomeScreen}/>
                 <Stack.Screen name="Counter" component={CounterScreen}/>
             </Stack.Navigator>
-        </NavigationContainer>
-    );
+        </NavigationContainer>);
 }
 
 
 function HomeScreen({navigation}) {
-    return (
-        <SafeAreaView style={styles.center}>
+    return (<SafeAreaView style={styles.center}>
             <Text style={styles.title}>Home</Text>
             <Button title="Go to Counter" onPress={() => navigation.navigate('Counter', {start: 1})}/>
-        </SafeAreaView>
-    );
+        </SafeAreaView>);
 }
 
 
@@ -31,8 +27,7 @@ function CounterScreen({route, navigation}) {
     const start = route.params?.start ?? 0;
     const [count, setCount] = React.useState(start);
 
-    return (
-        <SafeAreaView style={styles.center}>
+    return (<SafeAreaView style={styles.center}>
             <Text style={styles.title}>Counter: {count}</Text>
             <View style={styles.row}>
                 <Button title="+1" onPress={() => setCount(c => c + 1)}/>
@@ -41,8 +36,7 @@ function CounterScreen({route, navigation}) {
             </View>
             <View style={{height: 12}}/>
             <Button title="Go back" onPress={() => navigation.goBack()}/>
-        </SafeAreaView>
-    );
+        </SafeAreaView>);
 }
 
 const styles = StyleSheet.create({
