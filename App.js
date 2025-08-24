@@ -22,7 +22,6 @@ function HomeScreen({navigation}) {
         </SafeAreaView>);
 }
 
-
 function CounterScreen({route, navigation}) {
     const start = route.params?.start ?? 0;
     const [count, setCount] = React.useState(start);
