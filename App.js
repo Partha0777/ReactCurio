@@ -23,8 +23,8 @@ const sampleList = [
         name: "D",
         age: "35"
     },
-
 ]
+
 export default function App() {
     return (<NavigationContainer>
         <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
