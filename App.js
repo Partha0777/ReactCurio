@@ -6,7 +6,7 @@ import {SafeAreaView, View, Text, Button, StyleSheet, FlatList} from 'react-nati
 const Stack = createNativeStackNavigator();
 
 
-const  sampleList = [
+const sampleList = [
     {
         name: "A",
         age: "16"
@@ -27,33 +27,33 @@ const  sampleList = [
 ]
 export default function App() {
     return (<NavigationContainer>
-            <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
-                <Stack.Screen name="Home" component={HomeScreen}/>
-                <Stack.Screen name="Counter" component={CounterScreen}/>
-            </Stack.Navigator>
-        </NavigationContainer>);
+        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="Counter" component={CounterScreen}/>
+        </Stack.Navigator>
+    </NavigationContainer>);
 }
 
 
 function HomeScreen({navigation}) {
-    return (<SafeAreaView  edges={["top", "bottom"]}>
-            <Text style={styles.title}>Home</Text>
-            <View style={styles.container}>
-                <FlatList
-                    data={sampleList}
-                    keyExtractor={(item) => item.name}
-                    renderItem={({item}) => {
-                        return(
-                            <Text style={styles.item}>{
-                                item.name
-                            }
-                            </Text>
-                        )
-                    }}
-                />
-            </View>
-            <Button title="Go to Counter" onPress={() => navigation.navigate('Counter', {start: 1})}/>
-        </SafeAreaView>);
+    return (<SafeAreaView edges={["top", "bottom"]}>
+        <Text style={styles.title}>Home</Text>
+        <View style={styles.container}>
+            <FlatList
+                data={sampleList}
+                keyExtractor={(item) => item.name}
+                renderItem={({item}) => {
+                    return (
+                        <Text style={styles.item}>{
+                            item.name
+                        }
+                        </Text>
+                    )
+                }}
+            />
+        </View>
+        <Button title="Go to Counter" onPress={() => navigation.navigate('Counter', {start: 1})}/>
+    </SafeAreaView>);
 }
 
 function CounterScreen({route, navigation}) {
@@ -61,20 +61,20 @@ function CounterScreen({route, navigation}) {
     const [count, setCount] = React.useState(start);
 
     return (<SafeAreaView style={styles.screen} edges={["top", "bottom"]}>
-            <Text style={styles.title}>Counter: {count}</Text>
-            <View style={styles.row}>
-                <Button title="+1" onPress={() => setCount(c => c + 1)}/>
-                <View style={{width: 12}}/>
-                <Button title="-1" onPress={() => setCount(c => c - 1)}/>
-            </View>
-            <View style={{height: 12}}/>
-            <Button title="Go back" onPress={() => navigation.goBack()}/>
-        </SafeAreaView>);
+        <Text style={styles.title}>Counter: {count}</Text>
+        <View style={styles.row}>
+            <Button title="+1" onPress={() => setCount(c => c + 1)}/>
+            <View style={{width: 12}}/>
+            <Button title="-1" onPress={() => setCount(c => c - 1)}/>
+        </View>
+        <View style={{height: 12}}/>
+        <Button title="Go back" onPress={() => navigation.goBack()}/>
+    </SafeAreaView>);
 }
 
 const styles = StyleSheet.create({
-    screen: { flex: 1, backgroundColor: "#fff" }, // <-- not "center"
-    list: { flex: 1 },
+    screen: {flex: 1, backgroundColor: "#fff"}, // <-- not "center"
+    list: {flex: 1},
     center: {flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16},
     title: {fontSize: 22, fontWeight: '600', marginBottom: 12},
     row: {flexDirection: 'row', alignItems: 'center'},
