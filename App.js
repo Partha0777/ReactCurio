@@ -1,10 +1,30 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView, View, Text, Button, StyleSheet} from 'react-native';
+import {SafeAreaView, View, Text, Button, StyleSheet, FlatList} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
+
+const  sampleList = [
+    {
+        name: "A",
+        age: "16"
+    },
+    {
+        name: "B",
+        age: "14"
+    },
+    {
+        name: "C",
+        age: "18"
+    },
+    {
+        name: "D",
+        age: "35"
+    },
+
+]
 export default function App() {
     return (<NavigationContainer>
             <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
@@ -18,6 +38,20 @@ export default function App() {
 function HomeScreen({navigation}) {
     return (<SafeAreaView style={styles.center}>
             <Text style={styles.title}>Home</Text>
+            <View style={styles.container}>
+                <FlatList
+                    data={sampleList}
+                    keyExtractor={(item) => item.name}
+                    renderItem={({item}) => {
+                        return(
+                            <Text style={styles.item}>{
+                                item.name
+                            }
+                            </Text>
+                        )
+                    }}
+                />
+            </View>
             <Button title="Go to Counter" onPress={() => navigation.navigate('Counter', {start: 1})}/>
         </SafeAreaView>);
 }
