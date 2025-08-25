@@ -36,7 +36,7 @@ export default function App() {
 
 
 function HomeScreen({navigation}) {
-    return (<SafeAreaView style={styles.center}>
+    return (<SafeAreaView  edges={["top", "bottom"]}>
             <Text style={styles.title}>Home</Text>
             <View style={styles.container}>
                 <FlatList
@@ -60,7 +60,7 @@ function CounterScreen({route, navigation}) {
     const start = route.params?.start ?? 0;
     const [count, setCount] = React.useState(start);
 
-    return (<SafeAreaView style={styles.center}>
+    return (<SafeAreaView style={styles.screen} edges={["top", "bottom"]}>
             <Text style={styles.title}>Counter: {count}</Text>
             <View style={styles.row}>
                 <Button title="+1" onPress={() => setCount(c => c + 1)}/>
@@ -73,6 +73,8 @@ function CounterScreen({route, navigation}) {
 }
 
 const styles = StyleSheet.create({
+    screen: { flex: 1, backgroundColor: "#fff" }, // <-- not "center"
+    list: { flex: 1 },
     center: {flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16},
     title: {fontSize: 22, fontWeight: '600', marginBottom: 12},
     row: {flexDirection: 'row', alignItems: 'center'},
