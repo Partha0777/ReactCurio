@@ -3,8 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaView, View, Text, Button, StyleSheet, FlatList} from 'react-native';
 
-const Stack = createNativeStackNavigator();
 
+const Stack = createNativeStackNavigator();
 
 const sampleList = [
     {
