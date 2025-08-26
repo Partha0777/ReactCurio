@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
     SafeAreaView,
@@ -12,6 +12,7 @@ import {
     Dimensions,
     useWindowDimensions
 } from 'react-native';
+import {useEffect} from "react";
 
 
 
@@ -86,12 +87,20 @@ function CounterScreen({route, navigation}) {
 
 function SplashScreen() {
     const {width, height} = useWindowDimensions()
+    const navigation = useNavigation()
+
+
+    useEffect(() => {
+        const t = setTimeout(() => navigation.replace('Home'), 2000);
+        return () => clearTimeout(t);
+    }, [navigation]);
+
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
             <Image
                 source={require('../ReactCurio/assets/splash-icon.png')}
-                style={{ width: width * 0.5, height: width* 0.5 }}
+                style={{ width: width * 0.5, height: height* 0.5 }}
                 resizeMode="contain"
             />
         </View>
