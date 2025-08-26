@@ -9,11 +9,9 @@ import {
     StyleSheet,
     FlatList,
     Image,
-    Dimensions,
     useWindowDimensions
 } from 'react-native';
 import {useEffect} from "react";
-
 
 
 const sampleList = [
