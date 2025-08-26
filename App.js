@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView, View, Text, Button, StyleSheet, FlatList} from 'react-native';
+import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image} from 'react-native';
 
 
 
@@ -28,9 +28,10 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (<NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
+        <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{headerShadowVisible: false}}>
             <Stack.Screen name="Home" component={HomeScreen}/>
             <Stack.Screen name="Counter" component={CounterScreen}/>
+            <Stack.Screen name="SplashScreen" component={SplashScreen}/>
         </Stack.Navigator>
     </NavigationContainer>);
 }
@@ -73,8 +74,17 @@ function CounterScreen({route, navigation}) {
     </SafeAreaView>);
 }
 
+function SplashScreen() {
+    return (
+        <View style={styles.container}>
+            <Image
+                source={require('../ReactCurio/assets/splash-icon.png')}
+                />
+        </View>
+    )
+}
 const styles = StyleSheet.create({
-    screen: {flex: 1, backgroundColor: "#fff"}, // <-- not "center"
+    screen: {flex: 1, backgroundColor: "#fff"},
     list: {flex: 1},
     center: {flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16},
     title: {fontSize: 22, fontWeight: '600', marginBottom: 12},
