@@ -94,15 +94,16 @@ function SplashScreen({navigation}) {
 
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
             <Image
                 source={require('../ReactCurio/assets/splash-icon.png')}
-                style={{ width: width * 0.5, height: height* 0.5 }}
+                style={{width: width * 0.5, height: height * 0.5}}
                 resizeMode="contain"
             />
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     screen: {flex: 1, backgroundColor: "#fff"},
     list: {flex: 1},
