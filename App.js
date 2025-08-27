@@ -2,36 +2,20 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
-    SafeAreaView,
-    View,
-    Text,
-    Button,
-    StyleSheet,
-    FlatList,
-    Image,
-    useWindowDimensions
+    SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions
 } from 'react-native';
 import {useEffect} from "react";
 
 
-const sampleList = [
-    {
-        name: "A",
-        age: "16"
-    },
-    {
-        name: "B",
-        age: "14"
-    },
-    {
-        name: "C",
-        age: "18"
-    },
-    {
-        name: "D",
-        age: "35"
-    },
-]
+const sampleList = [{
+    name: "A", age: "16"
+}, {
+    name: "B", age: "14"
+}, {
+    name: "C", age: "18"
+}, {
+    name: "D", age: "35"
+},]
 
 
 const Stack = createNativeStackNavigator();
@@ -55,12 +39,8 @@ function HomeScreen({navigation}) {
                 data={sampleList}
                 keyExtractor={(item) => item.name}
                 renderItem={({item}) => {
-                    return (
-                        <Text style={styles.item}>{
-                            item.name
-                        }
-                        </Text>
-                    )
+                    return (<Text style={styles.item}>{item.name}
+                        </Text>)
                 }}
             />
         </View>
@@ -94,15 +74,13 @@ function SplashScreen({navigation}) {
     }, [navigation]);
 
 
-    return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
+    return (<View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
             <Image
                 source={require('../ReactCurio/assets/splash-icon.png')}
                 style={{width: width * 0.5, height: height * 0.5}}
                 resizeMode="contain"
             />
-        </View>
-    )
+        </View>)
 }
 
 const styles = StyleSheet.create({
