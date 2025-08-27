@@ -83,9 +83,8 @@ function CounterScreen({route, navigation}) {
     </SafeAreaView>);
 }
 
-function SplashScreen() {
+function SplashScreen({navigation}) {
     const {width, height} = useWindowDimensions()
-    const navigation = useNavigation()
 
 
     useEffect(() => {
