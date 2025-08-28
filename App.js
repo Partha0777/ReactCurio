@@ -64,7 +64,6 @@ function CounterScreen({route, navigation}) {
 }
 
 function SplashScreen({navigation}) {
-
     const {width, height} = useWindowDimensions()
 
     useEffect(() => {
