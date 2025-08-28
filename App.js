@@ -30,7 +30,6 @@ export default function App() {
     </NavigationContainer>);
 }
 
-
 function HomeScreen({navigation}) {
     return (<SafeAreaView edges={["top", "bottom"]}>
         <Text style={styles.title}>Home</Text>
