@@ -7,7 +7,6 @@ import {
 import {useEffect} from "react";
 
 
-
 const sampleList = [{
     name: "A", age: "16"
 }, {
@@ -43,7 +42,7 @@ function HomeScreen({navigation}) {
                 keyExtractor={(item) => item.name}
                 renderItem={({item}) => {
                     return (<Text style={styles.item}>{item.name}
-                        </Text>)
+                    </Text>)
                 }}
             />
         </View>
@@ -74,12 +73,12 @@ function SplashScreen({navigation}) {
         return () => clearTimeout(t);
     }, [navigation]);
     return (<View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
-            <Image
-                source={require('../ReactCurio/assets/splash-icon.png')}
-                style={{width: width * 0.5, height: height * 0.5}}
-                resizeMode="contain"
-            />
-        </View>)
+        <Image
+            source={require('../ReactCurio/assets/splash-icon.png')}
+            style={{width: width * 0.5, height: height * 0.5}}
+            resizeMode="contain"
+        />
+    </View>)
 }
 
 const styles = StyleSheet.create({
