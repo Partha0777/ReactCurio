@@ -67,7 +67,9 @@ function CounterScreen({route, navigation}) {
 }
 
 function SplashScreen({navigation}) {
+
     const {width, height} = useWindowDimensions()
+
     useEffect(() => {
         const t = setTimeout(() => navigation.replace('Home'), 2000);
         return () => clearTimeout(t);
