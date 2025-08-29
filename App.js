@@ -33,6 +33,7 @@ export default function App() {
 function HomeScreen({navigation}) {
 
     const navigationHook = useNavigation();
+
     return (<SafeAreaView edges={["top", "bottom"]}>
         <Text style={styles.title}>Home</Text>
         <View style={styles.container}>
