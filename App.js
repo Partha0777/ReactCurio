@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
     SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions
@@ -31,6 +31,8 @@ export default function App() {
 }
 
 function HomeScreen({navigation}) {
+
+    const navigationHook = useNavigation();
     return (<SafeAreaView edges={["top", "bottom"]}>
         <Text style={styles.title}>Home</Text>
         <View style={styles.container}>
@@ -43,12 +45,11 @@ function HomeScreen({navigation}) {
                 }}
             />
         </View>
-        <Button title="Go to Counter" onPress={() => navigation.navigate('Counter', {start: 1})}/>
+        <Button title="Go to Counter" onPress={() => navigationHook.navigate('Counter', {start: 1})}/>
     </SafeAreaView>);
 }
 
 function CounterScreen({route, navigation}) {
-
     const start = route.params?.start ?? 0;
     const [count, setCount] = React.useState(start);
 
