@@ -85,9 +85,11 @@ function SplashScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
+
     screen: {flex: 1, backgroundColor: "#fff"},
     list: {flex: 1},
     center: {flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16},
     title: {fontSize: 22, fontWeight: '600', marginBottom: 12},
     row: {flexDirection: 'row', alignItems: 'center'},
+
 });
