@@ -30,6 +30,21 @@ const ColorChanger = () => {
                     onMinus={() => dispatch({ color: "red", colorValue: -15 })}
                     onPlus={() => dispatch({ color: "red", colorValue: 15 })}
                 />
+                <ColorChangerView
+                    name="Green"
+                    onMinus={() => dispatch({color: "green", colorValue: -15})}
+                    onPlus={() => dispatch({color: "green", colorValue: 15})}
+                    />
+                <ColorChangerView
+                    name="Blue"
+                    onMinus={() => {
+                        dispatch({color: "blue", colorValue: -15})
+                    }
+                    }
+                    onPlus={() =>{
+                        dispatch({color: "blue", colorValue: 15})
+                    }
+                    }/>
             </View>
         </View>
     );
