@@ -1,6 +1,5 @@
 import {Button, Text, View} from "react-native";
 import {useReducer} from "react";
-import {Colors} from "react-native/Libraries/NewAppScreen";
 
 
 const reducer = (state, action) => {
