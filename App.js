@@ -3,6 +3,7 @@ import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
 import {useEffect} from "react";
+import ColorChanger from "./colorChanger/colorChanger";
 
 
 const sampleList = [{
@@ -24,6 +25,7 @@ export default function App() {
             <Stack.Screen name="Home" component={HomeScreen}/>
             <Stack.Screen name="Counter" component={CounterScreen}/>
             <Stack.Screen name="SplashScreen" component={SplashScreen}/>
+            <Stack.Screen name="ColorChanger" component={ColorChanger}/>
         </Stack.Navigator>
     </NavigationContainer>);
 }
@@ -45,6 +47,7 @@ function HomeScreen({navigation}) {
             />
         </View>
         <Button title="Go to Counter" onPress={() => navigationHook.navigate('Counter', {start: 1})}/>
+        <Button title="Color Changer" onPress={() => navigationHook.navigate('ColorChanger')}/>
     </SafeAreaView>);
 }
 
