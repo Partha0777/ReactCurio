@@ -12,7 +12,6 @@ const reducer = (state, action) => {
         case "blue":
             return { ...state, blue: clamp255(state.blue + action.colorValue) };
         default:
-            // IMPORTANT: always return state by default to avoid "reducer returned undefined"
             return state;
     }
 };
