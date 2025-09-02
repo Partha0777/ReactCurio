@@ -3,6 +3,7 @@ import {useReducer} from "react";
 
 const clamp255 = (n) => Math.max(0, Math.min(255, n));
 
+
 const reducer = (state, action) => {
     switch (action.color) {
         case "red":
