@@ -58,7 +58,6 @@ const ColorChanger = () => {
 
 
 const ColorChangerView = ({name, onMinus, onPlus}) => {
-
     return (
         <View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 8}}>
             <Button title="-" onPress={onMinus}/>
@@ -66,7 +65,6 @@ const ColorChangerView = ({name, onMinus, onPlus}) => {
             <Button title="+" onPress={onPlus}/>
         </View>
     );
-
 };
 
 export default ColorChanger;
