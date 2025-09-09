@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
 import {useEffect} from "react";
 import ColorChanger from "./colorChanger/colorChanger";
+import SplashScreen from "./pages/SplashScreen";
 
 
 const sampleList = [{
@@ -21,7 +22,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (<NavigationContainer>
-        <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{headerShadowVisible: false}}>
+        <Stack.Navigator initialRouteName="Home" screenOptions={{headerShadowVisible: false}}>
             <Stack.Screen name="Home" component={HomeScreen}/>
             <Stack.Screen name="Counter" component={CounterScreen}/>
             <Stack.Screen name="SplashScreen" component={SplashScreen}/>
@@ -46,7 +47,7 @@ function HomeScreen({navigation}) {
                 }}
             />
         </View>
-        <Button title="Go to Counter" onPress={() => navigationHook.navigate('Counter', {start: 1})}/>
+        <Button title="Go to ECommerce App" onPress={() => navigationHook.navigate('SplashScreen')}/>
     </SafeAreaView>);
 }
 
