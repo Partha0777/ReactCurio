@@ -47,7 +47,6 @@ function HomeScreen({navigation}) {
             />
         </View>
         <Button title="Go to Counter" onPress={() => navigationHook.navigate('Counter', {start: 1})}/>
-        <Button title="Color Changer" onPress={() => navigationHook.navigate('ColorChanger')}/>
     </SafeAreaView>);
 }
 
@@ -67,7 +66,7 @@ function CounterScreen({route, navigation}) {
     </SafeAreaView>);
 }
 
-function SplashScreen({navigation}) {
+function LaunchScreen({navigation}) {
 
     const {width, height} = useWindowDimensions()
 
