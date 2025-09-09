@@ -1,4 +1,4 @@
-import {View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
+import {View, StyleSheet, Image, useWindowDimensions} from 'react-native';
 
 
 function SplashScreen() {
