@@ -1,7 +1,7 @@
 import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
 
 
-function SplashScreen(){
+function SplashScreen() {
 
     const {width, height} = useWindowDimensions()
 
@@ -16,7 +16,7 @@ function SplashScreen(){
     )
 }
 
-const  style = StyleSheet.create({
+const style = StyleSheet.create({
     container: {}
 })
 
