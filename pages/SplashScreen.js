@@ -1,4 +1,4 @@
-import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
+import {View, Text, Button, StyleSheet, FlatList, Image, useWindowDimensions} from 'react-native';
 
 
 function SplashScreen() {
