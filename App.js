@@ -5,6 +5,8 @@ import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindow
 import {useEffect} from "react";
 import ColorChanger from "./colorChanger/colorChanger";
 import SplashScreen from "./pages/SplashScreen";
+import EcomHomePage from "./pages/homePage";
+import EcomHomeScreen from "./pages/homePage";
 
 
 const sampleList = [{
@@ -27,6 +29,7 @@ export default function App() {
             <Stack.Screen name="Counter" component={CounterScreen}/>
             <Stack.Screen name="SplashScreen" component={SplashScreen}/>
             <Stack.Screen name="ColorChanger" component={ColorChanger}/>
+            <Stack.Screen name="EcomHomeScreen" component={EcomHomeScreen}/>
         </Stack.Navigator>
     </NavigationContainer>);
 }
