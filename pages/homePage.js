@@ -1,5 +1,4 @@
 import {Button, FlatList, Image, SafeAreaView, StyleSheet, Text, View} from "react-native";
-import {useNavigation} from "@react-navigation/native";
 import * as React from "react";
 
 
