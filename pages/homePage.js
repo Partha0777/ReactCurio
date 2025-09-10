@@ -1,4 +1,4 @@
-import {Button, FlatList, Image, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, View} from "react-native";
 import * as React from "react";
 
 
