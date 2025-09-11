@@ -3,7 +3,6 @@ import * as React from "react";
 
 
 function EcomHomeScreen({navigation}) {
-
     return (<View>
         <Text>Home</Text>
     </View>);
