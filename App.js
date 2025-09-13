@@ -5,7 +5,6 @@ import {SafeAreaView, View, Text, Button, StyleSheet, FlatList, Image, useWindow
 import {useEffect} from "react";
 import ColorChanger from "./colorChanger/colorChanger";
 import SplashScreen from "./pages/SplashScreen";
-import EcomHomePage from "./pages/homePage";
 import EcomHomeScreen from "./pages/homePage";
 
 
