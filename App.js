@@ -71,7 +71,6 @@ function CounterScreen({route, navigation}) {
 }
 
 function LaunchScreen({navigation}) {
-
     const {width, height} = useWindowDimensions()
 
     useEffect(() => {
