@@ -1,7 +1,6 @@
 import {StyleSheet, Text, View} from "react-native";
 import * as React from "react";
 
-
 function EcomHomeScreen({navigation}) {
     return (<View>
         <Text>Home</Text>
