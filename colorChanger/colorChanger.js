@@ -21,14 +21,10 @@ const ColorChanger = () => {
     const [state, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0});
     const {red, green, blue} = state;
 
-    return (
-        <View style={{paddingHorizontal: 16, paddingVertical: 16, alignItems: "center"}}>
+    return (<View style={{paddingHorizontal: 16, paddingVertical: 16, alignItems: "center"}}>
             <View
                 style={{
-                    height: 100,
-                    width: 100,
-                    backgroundColor: `rgb(${red}, ${green}, ${blue})`,
-                    marginBottom: 16,
+                    height: 100, width: 100, backgroundColor: `rgb(${red}, ${green}, ${blue})`, marginBottom: 16,
                 }}
             />
             <View style={{flexDirection: "row", justifyContent: "space-between"}}>
@@ -51,19 +47,16 @@ const ColorChanger = () => {
             <Text style={{marginTop: 10, fontSize: 16}}>
                 rgb({red}, {green}, {blue})
             </Text>
-        </View>
-    );
+        </View>);
 };
 
 
 const ColorChangerView = ({name, onMinus, onPlus}) => {
-    return (
-        <View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 8}}>
+    return (<View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 8}}>
             <Button title="-" onPress={onMinus}/>
             <Text style={{textAlign: "center", fontSize: 20, marginHorizontal: 10}}>{name}</Text>
             <Button title="+" onPress={onPlus}/>
-        </View>
-    );
+        </View>);
 };
 
 export default ColorChanger;
