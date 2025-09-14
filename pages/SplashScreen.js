@@ -12,12 +12,12 @@ function SplashScreen({navigation}) {
     }, [navigation]);
 
     return (<View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
-            <Image
-                source={require('../assets/splash-icon.png')}
-                style={{width: width * 0.5, height: height * 0.5}}
-                resizeMode="contain"
-            />
-        </View>)
+        <Image
+            source={require('../assets/splash-icon.png')}
+            style={{width: width * 0.5, height: height * 0.5}}
+            resizeMode="contain"
+        />
+    </View>)
 }
 
 const style = StyleSheet.create({
