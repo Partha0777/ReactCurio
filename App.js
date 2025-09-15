@@ -8,6 +8,7 @@ import SplashScreen from "./pages/SplashScreen";
 import EcomHomeScreen from "./pages/homePage";
 
 
+
 const sampleList = [{
     name: "A", age: "16"
 }, {
