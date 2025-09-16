@@ -87,6 +87,7 @@ function LaunchScreen({navigation}) {
     </View>)
 }
 
+
 const styles = StyleSheet.create({
     screen: {flex: 1, backgroundColor: "#fff"},
     list: {flex: 1},
