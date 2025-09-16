@@ -51,6 +51,7 @@ function HomeScreen({navigation}) {
         </View>
         <Button title="Go to ECommerce App" onPress={() => navigationHook.navigate('SplashScreen')}/>
     </SafeAreaView>);
+
 }
 
 function CounterScreen({route, navigation}) {
