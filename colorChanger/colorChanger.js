@@ -24,41 +24,41 @@ const ColorChanger = () => {
     const {red, green, blue} = state;
 
     return (<View style={{paddingHorizontal: 16, paddingVertical: 16, alignItems: "center"}}>
-            <View
-                style={{
-                    height: 100, width: 100, backgroundColor: `rgb(${red}, ${green}, ${blue})`, marginBottom: 16,
-                }}
+        <View
+            style={{
+                height: 100, width: 100, backgroundColor: `rgb(${red}, ${green}, ${blue})`, marginBottom: 16,
+            }}
+        />
+        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+            <ColorChangerView
+                name="Red"
+                onMinus={() => dispatch({color: "red", colorValue: -15})}
+                onPlus={() => dispatch({color: "red", colorValue: 15})}
             />
-            <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-                <ColorChangerView
-                    name="Red"
-                    onMinus={() => dispatch({color: "red", colorValue: -15})}
-                    onPlus={() => dispatch({color: "red", colorValue: 15})}
-                />
-                <ColorChangerView
-                    name="Green"
-                    onMinus={() => dispatch({color: "green", colorValue: -15})}
-                    onPlus={() => dispatch({color: "green", colorValue: 15})}
-                />
-                <ColorChangerView
-                    name="Blue"
-                    onMinus={() => dispatch({color: "blue", colorValue: -15})}
-                    onPlus={() => dispatch({color: "blue", colorValue: 15})}
-                />
-            </View>
-            <Text style={{marginTop: 10, fontSize: 16}}>
-                rgb({red}, {green}, {blue})
-            </Text>
-        </View>);
+            <ColorChangerView
+                name="Green"
+                onMinus={() => dispatch({color: "green", colorValue: -15})}
+                onPlus={() => dispatch({color: "green", colorValue: 15})}
+            />
+            <ColorChangerView
+                name="Blue"
+                onMinus={() => dispatch({color: "blue", colorValue: -15})}
+                onPlus={() => dispatch({color: "blue", colorValue: 15})}
+            />
+        </View>
+        <Text style={{marginTop: 10, fontSize: 16}}>
+            rgb({red}, {green}, {blue})
+        </Text>
+    </View>);
 };
 
 
 const ColorChangerView = ({name, onMinus, onPlus}) => {
     return (<View style={{flexDirection: "row", alignItems: "center", marginHorizontal: 8}}>
-            <Button title="-" onPress={onMinus}/>
-            <Text style={{textAlign: "center", fontSize: 20, marginHorizontal: 10}}>{name}</Text>
-            <Button title="+" onPress={onPlus}/>
-        </View>);
+        <Button title="-" onPress={onMinus}/>
+        <Text style={{textAlign: "center", fontSize: 20, marginHorizontal: 10}}>{name}</Text>
+        <Button title="+" onPress={onPlus}/>
+    </View>);
 };
 
 export default ColorChanger;
