@@ -19,6 +19,7 @@ const reducer = (state, action) => {
 const ColorChanger = () => {
 
     const [state, dispatch] = useReducer(reducer, {red: 0, green: 0, blue: 0});
+
     const {red, green, blue} = state;
 
     return (<View style={{paddingHorizontal: 16, paddingVertical: 16, alignItems: "center"}}>
