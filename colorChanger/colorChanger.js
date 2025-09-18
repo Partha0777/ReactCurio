@@ -24,11 +24,13 @@ const ColorChanger = () => {
     const {red, green, blue} = state;
 
     return (<View style={{paddingHorizontal: 16, paddingVertical: 16, alignItems: "center"}}>
+
         <View
             style={{
                 height: 100, width: 100, backgroundColor: `rgb(${red}, ${green}, ${blue})`, marginBottom: 16,
             }}
         />
+
         <View style={{flexDirection: "row", justifyContent: "space-between"}}>
             <ColorChangerView
                 name="Red"
