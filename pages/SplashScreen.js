@@ -20,8 +20,10 @@ function SplashScreen({navigation}) {
     </View>)
 }
 
+
 const style = StyleSheet.create({
     container: {}
 })
+
 
 export default SplashScreen;
