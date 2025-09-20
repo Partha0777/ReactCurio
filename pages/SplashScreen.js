@@ -7,8 +7,11 @@ function SplashScreen({navigation}) {
     const {width, height} = useWindowDimensions()
 
     useEffect(() => {
+
         const t = setTimeout(() => navigation.replace('EcomHomeScreen'), 2000);
+
         return () => clearTimeout(t);
+
     }, [navigation]);
 
     return (<View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff'}}>
