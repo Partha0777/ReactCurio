@@ -10,6 +10,7 @@ function EcomHomeScreen({navigation}) {
 }
 
 const style = StyleSheet.create({
+
     container: {}
 })
 
