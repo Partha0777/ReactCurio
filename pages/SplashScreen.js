@@ -9,7 +9,6 @@ function SplashScreen({navigation}) {
     useEffect(() => {
 
         const t = setTimeout(() => navigation.replace('EcomHomeScreen'), 2000);
-
         return () => clearTimeout(t);
 
     }, [navigation]);
