@@ -4,7 +4,6 @@ import {useEffect} from "react";
 
 function SplashScreen({navigation}) {
 
-
     const {width, height} = useWindowDimensions()
 
     useEffect(() => {
