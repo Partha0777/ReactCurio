@@ -1,7 +1,6 @@
 import {View, StyleSheet, Image, useWindowDimensions} from 'react-native';
 import {useEffect} from "react";
 
-
 function SplashScreen({navigation}) {
 
     const {width, height} = useWindowDimensions()
