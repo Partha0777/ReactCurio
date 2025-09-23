@@ -19,7 +19,6 @@ function SplashScreen({navigation}) {
     </View>)
 }
 
-
 const style = StyleSheet.create({
     container: {}
 })
