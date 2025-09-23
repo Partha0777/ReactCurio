@@ -57,6 +57,7 @@ function HomeScreen({navigation}) {
 function CounterScreen({route, navigation}) {
 
     const start = route.params?.start ?? 0;
+
     const [count, setCount] = React.useState(start);
 
     return (<SafeAreaView style={styles.screen} edges={["top", "bottom"]}>
